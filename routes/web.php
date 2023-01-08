@@ -18,7 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('dashboard/home',function(){
+Route::get('dashboard',function(){
     return view('dashboard.pages.home');
 });
-
