@@ -17,7 +17,9 @@ class PublisherFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => fake()->name(),
+            'address' => fake()->address(),
+            'phone' => fake()->phoneNumber()
         ];
     }
 }

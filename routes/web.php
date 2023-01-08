@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('dashboard',function(){
+Route::get('dashboard', function () {
     return view('dashboard.pages.home');
 });
+
+Route::get('/books', [BookController::class, 'getBooks']);
