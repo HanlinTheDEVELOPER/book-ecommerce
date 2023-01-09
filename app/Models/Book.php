@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Category;
 use App\Models\Publisher;
 use App\Models\AdditionalBookinfo;
 use Illuminate\Database\Eloquent\Model;
@@ -20,5 +21,10 @@ class Book extends Model
     public function additionalBookinfo()
     {
         return $this->hasOne(AdditionalBookinfo::class);
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'book_categories');
     }
 }

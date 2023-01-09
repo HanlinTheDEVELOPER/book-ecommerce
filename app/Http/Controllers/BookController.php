@@ -7,9 +7,15 @@ use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
-    function getBooks()
+    public  function getBooks()
     {
-        $data = Book::with(['publisher', 'additionalBookinfo'])->get();
-        return $data[0];
+        $data = Book::with(['publisher', 'additionalBookinfo', 'categories'])->get();
+        return $data;
+    }
+
+    public function getBookById($id)
+    {
+        $data = Book::with(['publisher', 'additionalBookinfo', 'categories'])->find($id);
+        return $data;
     }
 }

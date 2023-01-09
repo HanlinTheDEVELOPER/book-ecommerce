@@ -24,3 +24,4 @@ Route::get('dashboard', function () {
 });
 
 Route::get('/books', [BookController::class, 'getBooks']);
+Route::get('/books/{id}', [BookController::class, 'getBookById']);

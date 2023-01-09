@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Publisher;
 use Illuminate\Database\Seeder;
 use App\Models\AdditionalBookinfo;
+use App\Models\BookCategory;
 use Database\Seeders\CategorySeeder;
 use Database\Factories\PublisherFactory;
 use Database\Factories\AdditionalBookinfoFactory;
@@ -37,5 +38,6 @@ class DatabaseSeeder extends Seeder
                 ->has(AdditionalBookinfo::factory(1))
                 ->count(12))
             ->create();
+        BookCategory::factory(100)->create();
     }
 }
