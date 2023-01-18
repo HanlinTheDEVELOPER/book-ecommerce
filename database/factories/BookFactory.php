@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Author;
 use App\Models\Publisher;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -21,7 +22,7 @@ class BookFactory extends Factory
             'name' => fake()->catchPhrase(),
             'price' => fake()->numberBetween(1000, 19999),
             'description' => fake()->paragraph(),
-            // 'publisher_id' => Publisher::factory()
+            'author_id' => fake()->randomElement(Author::pluck('id')->toArray())
         ];
     }
 }

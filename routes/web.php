@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\BookController;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\AuthorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('dashboard', function () {
     return view('dashboard.pages.home');
 });
+
+Route::get('/authors', [AuthorController::class, 'getAuthors']);
 
 Route::get('/books', [BookController::class, 'getBooks']);
 Route::get('/books/{id}', [BookController::class, 'getBookById']);
