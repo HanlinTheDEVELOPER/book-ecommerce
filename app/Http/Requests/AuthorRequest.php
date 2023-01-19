@@ -13,7 +13,7 @@ class AuthorRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,17 @@ class AuthorRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required', 'unique:authors,name',
+            'photo' => 'mimetypes:image/png,image/jpg, image/jpeg'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => "Author name can't be empty",
+            'name.unique' => "Author with this name already exist",
+            'photo.mimetypes' => "Image must be either 'JPG','JPEG' or 'PNG'.",
         ];
     }
 }

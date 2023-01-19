@@ -26,6 +26,7 @@ Route::get('dashboard', function () {
 });
 
 Route::get('/authors', [AuthorController::class, 'getAuthors']);
+Route::post('/authors', [AuthorController::class, 'createAuthor']);
 
 Route::get('/books', [BookController::class, 'getBooks']);
 Route::get('/books/{id}', [BookController::class, 'getBookById']);
