@@ -44,21 +44,23 @@
         </form>
         <div class="w-2/3 flex flex-wrap gap-5">
             @foreach ($authors as $author)
-                <div class="w-1/4 h-[40vh] bg-gray-100 rounded shadow overflow-hidden">
-                    <div class="h-3/4">
-                        @if ($author->photo)
-                            <img alt="{{ $author->name }}'s photo" class="h-full w-full object-scale-down"
-                                src="{{ url($author->photo) }}" title="author photo" />
-                        @else
-                            <img alt="{{ $author->name }}'s photo" class="h-full w-full object-scale-down"
-                                src="{{ url('storage/upload/image/PngItem_307416.png') }}" title="author photo" />
-                        @endif
+                <a class="w-1/4 h-[40vh]" href="{{ url('/authors/' . $author->id) }}">
+                    <div class="h-full w-full bg-gray-100 rounded shadow overflow-hidden ">
+                        <div class="h-3/4">
+                            @if ($author->photo)
+                                <img alt="{{ $author->name }}'s photo" class="h-full w-full object-fill"
+                                    src="{{ url($author->photo) }}" title="author photo" />
+                            @else
+                                <img alt="{{ $author->name }}'s photo" class="h-full w-full object-fill"
+                                    src="{{ url('storage/upload/image/PngItem_307416.png') }}" title="author photo" />
+                            @endif
+                        </div>
+                        <div class="h-14 px-4 mt-3">
+                            <h1 class="text-lg leading-6">{{ $author->name }}</h1>
+                            <h1>{{ count($author->books) }} Books</h1>
+                        </div>
                     </div>
-                    <div class="h-14 px-4 mt-3">
-                        <h1>{{ $author->name }}</h1>
-                        <h1>{{ count($author->books) }} Books</h1>
-                    </div>
-                </div>
+                </a>
             @endforeach
 
         </div>

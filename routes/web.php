@@ -21,12 +21,12 @@ Route::get('/', function () {
 });
 
 
-Route::get('dashboard', function () {
-    return view('dashboard.pages.home');
-});
+
 
 Route::get('/authors', [AuthorController::class, 'getAuthors']);
+Route::get('/authors/{id}', [AuthorController::class, 'authorDetail']);
 Route::post('/authors', [AuthorController::class, 'createAuthor']);
+Route::get('/author/{id}', [AuthorController::class, 'deleteAuthor']);
 
 Route::get('/books', [BookController::class, 'getBooks']);
 Route::get('/books/{id}', [BookController::class, 'getBookById']);

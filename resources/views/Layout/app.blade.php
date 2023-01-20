@@ -9,7 +9,7 @@
     <title>Book E-commerce</title>
 </head>
 
-<body>
+<body class="bg-gray-200">
     @yield('body')
 </body>
 

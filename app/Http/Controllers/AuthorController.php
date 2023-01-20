@@ -11,8 +11,7 @@ class AuthorController extends Controller
     public function getAuthors()
     {
         $authors = Author::with('books')->orderBy('name')->get();
-        // dd($data);
-        return view('dashboard.pages.author')->with(['authors' => $authors]);
+        return view('Pages.Author.list')->with(['authors' => $authors]);
     }
 
     public function createAuthor(AuthorRequest $request)
@@ -30,6 +29,18 @@ class AuthorController extends Controller
             'photo' => $path
         ];
         Author::create($author);
+        return redirect('/authors');
+    }
+
+    public function authorDetail($id)
+    {
+        $author = Author::with('books')->find($id);
+        return view('Pages.Author.author')->with(['author' => $author]);
+    }
+
+    public function deleteAuthor($id)
+    {
+        Author::find($id)->delete();
         return redirect('/authors');
     }
 }

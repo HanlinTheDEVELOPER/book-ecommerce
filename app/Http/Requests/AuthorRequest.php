@@ -25,7 +25,7 @@ class AuthorRequest extends FormRequest
     {
         return [
             'name' => 'required', 'unique:authors,name',
-            'photo' => 'mimetypes:image/png,image/jpg, image/jpeg'
+            'photo' => 'mimes:png,jpg,jpeg'
         ];
     }
 
@@ -34,7 +34,7 @@ class AuthorRequest extends FormRequest
         return [
             'name.required' => "Author name can't be empty",
             'name.unique' => "Author with this name already exist",
-            'photo.mimetypes' => "Image must be either 'JPG','JPEG' or 'PNG'.",
+            'photo.mimes' => "Image must be either 'JPG','JPEG' or 'PNG'.",
         ];
     }
 }
