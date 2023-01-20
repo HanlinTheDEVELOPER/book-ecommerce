@@ -16,7 +16,7 @@
                     Total Books: {{ count($author->books) }}
                 </h1>
                 <div class="pb-3">
-                    <a href="">
+                    <a href="{{ url('/author/' . $author->id . '/edit') }}">
                         <button class="bg-gray-500 text-white rounded px-3 py-1">Edit</button>
                     </a>
                     <a href="{{ url('/author/' . $author->id) }}">

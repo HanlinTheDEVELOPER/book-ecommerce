@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('price');
             $table->longText('description');
             $table->foreignId('publisher_id');
-            $table->foreignId('author_id');
+            $table->foreignId('author_id')->onDelete('cascade');;
             $table->timestamps();
         });
     }
